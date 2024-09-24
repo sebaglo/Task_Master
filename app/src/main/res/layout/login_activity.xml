@@ -1,0 +1,83 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+android:background="@drawable/fondo"
+    >
+
+    <!--implementacion de imagen-->
+    <ImageView
+        android:id="@+id/logo"
+
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="24dp"
+        android:src="@mipmap/sesion"
+        android:layout_gravity="center"
+        android:contentDescription="App logo"
+        />
+
+    <!-- Campo de nombre de usuario -->
+    <EditText
+        android:id="@+id/etUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="@drawable/launcher_background_blue"
+        android:textColor="@android:color/black"
+        android:hint="Nombre de usuario"
+        android:inputType="text"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Campo de contraseña -->
+    <EditText
+        android:id="@+id/etContraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="@drawable/launcher_background_blue"
+        android:textColor="@android:color/black"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Botón de inicio de sesión -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Iniciar sesión"
+        android:layout_gravity="center" />
+
+    <!-- Texto de ayuda para recuperar contraseña -->
+    <TextView
+        android:id="@+id/helpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Olvidaste tu contraseña?"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp" />
+
+    <!-- Texto con enlace para registrar -->
+    <TextView
+        android:id="@+id/txtRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿No tienes cuenta? Regístrate aquí"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:textStyle="bold"
+        android:clickable="true"/>
+</LinearLayout>
