@@ -3,9 +3,11 @@ package com.example.task_masterfinal;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     EditText tarea_nueva;
     TextView lista_tarea;
     ProgressBar progressBar;
+    Spinner spinner;
     String lista;
     String tn;
     int numeroTareas = 0;
@@ -36,12 +39,24 @@ public class MainActivity extends AppCompatActivity {
         tarea_nueva = (EditText) findViewById(R.id.etTarea);
         lista_tarea = (TextView) findViewById(R.id.txtLista);
         progressBar = (ProgressBar) findViewById(R.id.progress);
+        spinner = (Spinner) findViewById(R.id.spinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.prioridades, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 lista = lista_tarea.getText().toString();
                 tn = tarea_nueva.getText().toString();
+                String prioridad = spinner.getSelectedItem().toString(); // Obtener la prioridad seleccionada
+
+                if(numeroTareas < 10 && !tn.isEmpty()){
+                    lista = lista + "\n" + tn + " (Prioridad: " + prioridad + ")"; // Agregar tarea con prioridad
+                    lista_tarea.setText(lista);
+                }
 
                 //solo agregar si hay espacio
                 if(numeroTareas < 10 && !tn.isEmpty()){
